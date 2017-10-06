@@ -1,4 +1,5 @@
-# cmake 编译警告 /usr/local/zed/lib/libsl_zed.so: not a directory
+# 问题汇总：
+## 1. cmake 编译警告 /usr/local/zed/lib/libsl_zed.so: not a directory
 ![](Question_images/cmake.png)
 CMakeLists.txt文件如下：
 ```
@@ -58,7 +59,7 @@ include_directories(
 add_subdirectory( src )
 add_subdirectory( test )
 ```
-## 解决方案及其思路：
+### 解决方案及其思路：
 ```
 include_directories( 
     ${OpenCV_INCLUDE_DIRS} 
@@ -105,7 +106,8 @@ include_directories(
     "/usr/include/eigen3/"
 )
 ```
-# `bin`文件夹里没有出现可执行文件，还是在build的`test`文件夹里
+## 2.`bin`文件夹里没有出现可执行文件，还是在build的`test`文件夹里
+
 ##　解决方案
 ```
 ELSE() # Linux
@@ -116,8 +118,9 @@ ELSE() # Linux
     set( LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib )
 ENDIF(WIN32)
 ```
-一定要在**`add_subdirectory(bin)`之前`set( EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin )`**
-对比：   `Linking CXX executable test`与`Linking CXX executable ../../bin/test`　  　
+一定要在`add_subdirectory(bin)`之前`set( EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin )`  
+`Linking CXX executable test`与`Linking CXX executable ../../bin/test`差别　　
+　　      　
 (不正确如下)
 ```
 lumino@lumino:~/hitlumino/zed-dev/feature_extractoin/build$ make
