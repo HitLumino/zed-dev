@@ -1,7 +1,8 @@
 # 问题汇总：
 ## 1. cmake 编译警告 /usr/local/zed/lib/libsl_zed.so: not a directory
-![](Question_images/cmake.png)
-CMakeLists.txt文件如下：
+
+![](Question_images/cmake.png)　  
+　CMakeLists.txt文件如下：  
 ```
 SET(execName feature-extra)
 cmake_minimum_required( VERSION 2.8 )
@@ -106,9 +107,9 @@ include_directories(
     "/usr/include/eigen3/"
 )
 ```
-## 2.`bin`文件夹里没有出现可执行文件，还是在build的`test`文件夹里
 
-##　解决方案
+## 2.`bin`文件夹里没有出现可执行文件，还是在build的`test`文件夹里
+  
 ```
 ELSE() # Linux
     find_package(ZED 2.1 REQUIRED)
@@ -118,10 +119,10 @@ ELSE() # Linux
     set( LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib )
 ENDIF(WIN32)
 ```
+### 解决方案：
 一定要在`add_subdirectory(bin)`之前`set( EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin )`  
-`Linking CXX executable test`与`Linking CXX executable ../../bin/test`差别　　
-　　      　
-(不正确如下)
+注意`Linking CXX executable test`与`Linking CXX executable ../../bin/test`差别   　
+(不正确如下)  
 ```
 lumino@lumino:~/hitlumino/zed-dev/feature_extractoin/build$ make
 Scanning dependencies of target feature_extraction
@@ -134,7 +135,7 @@ Scanning dependencies of target test
 [100%] Built target test
 ```
 ---------------　　
-(正确如下)
+(正确如下)  
 ```
 lumino@lumino:~/hitlumino/zed-dev/feature_extractoin/build$ make
 [ 25%] Linking CXX shared library ../../lib/libfeature_extraction.so
