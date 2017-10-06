@@ -134,8 +134,8 @@ Scanning dependencies of target test
 [100%] Linking CXX executable test
 [100%] Built target test
 ```
----------------　　
-(正确如下)  
+---------------　(正确如下)----------------　
+
 ```
 lumino@lumino:~/hitlumino/zed-dev/feature_extractoin/build$ make
 [ 25%] Linking CXX shared library ../../lib/libfeature_extraction.so
