@@ -1,8 +1,0 @@
-/home/lumino/Workspace/zed-dev/feature_extractoin/build/CMakeFiles/edit_cache.dir
-/home/lumino/Workspace/zed-dev/feature_extractoin/build/CMakeFiles/rebuild_cache.dir
-/home/lumino/Workspace/zed-dev/feature_extractoin/build/src/CMakeFiles/edit_cache.dir
-/home/lumino/Workspace/zed-dev/feature_extractoin/build/src/CMakeFiles/rebuild_cache.dir
-/home/lumino/Workspace/zed-dev/feature_extractoin/build/src/CMakeFiles/feature_extraction.dir
-/home/lumino/Workspace/zed-dev/feature_extractoin/build/test/CMakeFiles/edit_cache.dir
-/home/lumino/Workspace/zed-dev/feature_extractoin/build/test/CMakeFiles/rebuild_cache.dir
-/home/lumino/Workspace/zed-dev/feature_extractoin/build/test/CMakeFiles/test.dir
