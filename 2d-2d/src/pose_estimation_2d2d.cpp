@@ -17,22 +17,16 @@ void find_feature_matches (
     std::vector<KeyPoint>& keypoints_2,
     std::vector< DMatch >& matches );
 
-void pose_estimation_2d2d (
-    std::vector<KeyPoint> keypoints_1,
+void pose_estimation_2d2d (std::vector<KeyPoint> keypoints_1,
     std::vector<KeyPoint> keypoints_2,
     std::vector< DMatch > matches,
-    Mat& R, Mat& t );
+    Mat3d &R, Vec3d& t );
 
 // 像素坐标转相机归一化坐标
 Point2d pixel2cam ( const Point2d& p, const Mat& K );
-
+/*
 int main ( int argc, char** argv )
 {
-    if ( argc != 3 )
-    {
-        cout<<"usage: pose_estimation_2d2d img1 img2"<<endl;
-        return 1;
-    }
     //-- 读取图像
     Mat img_1 = imread ( argv[1], CV_LOAD_IMAGE_COLOR );
     Mat img_2 = imread ( argv[2], CV_LOAD_IMAGE_COLOR );
@@ -67,6 +61,7 @@ int main ( int argc, char** argv )
     }
     return 0;
 }
+*/
 
 void find_feature_matches ( const Mat& img_1, const Mat& img_2,
                             std::vector<KeyPoint>& keypoints_1,
@@ -136,8 +131,9 @@ void pose_estimation_2d2d ( std::vector<KeyPoint> keypoints_1,
                             Mat& R, Mat& t )
 {
     // 相机内参,TUM Freiburg2
-    Mat K = ( Mat_<double> ( 3,3 ) << 520.9, 0, 325.1, 0, 521.0, 249.7, 0, 0, 1 );
-
+    //Mat K = ( Mat_<double> ( 3,3 ) << 520.9, 0, 325.1, 0, 521.0, 249.7, 0, 0, 1 );
+    //相机内场，ZED-VGA-Left
+     Mat K = ( Mat_<double> ( 3,3 ) << 350.07, 0, 348.508, 0, 350.07, 194.524, 0, 0, 1 );
     //-- 把匹配点转换为vector<Point2f>的形式
     vector<Point2f> points1;
     vector<Point2f> points2;
@@ -151,19 +147,19 @@ void pose_estimation_2d2d ( std::vector<KeyPoint> keypoints_1,
     //-- 计算基础矩阵
     Mat fundamental_matrix;
     fundamental_matrix = findFundamentalMat ( points1, points2, CV_FM_8POINT );
-    cout<<"fundamental_matrix is "<<endl<< fundamental_matrix<<endl;
+    //cout<<"fundamental_matrix is "<<endl<< fundamental_matrix<<endl;
 
     //-- 计算本质矩阵
-    Point2d principal_point ( 325.1, 249.7 );	//相机光心, TUM dataset标定值
-    double focal_length = 521;			//相机焦距, TUM dataset标定值
+    Point2d principal_point ( 348.508, 194.524 );	//相机光心, TUM dataset标定值
+    double focal_length = 350.07;			//相机焦距, TUM dataset标定值
     Mat essential_matrix;
     essential_matrix = findEssentialMat ( points1, points2, focal_length, principal_point );
-    cout<<"essential_matrix is "<<endl<< essential_matrix<<endl;
+    //cout<<"essential_matrix is "<<endl<< essential_matrix<<endl;
 
     //-- 计算单应矩阵
     Mat homography_matrix;
     homography_matrix = findHomography ( points1, points2, RANSAC, 3 );
-    cout<<"homography_matrix is "<<endl<<homography_matrix<<endl;
+    //cout<<"homography_matrix is "<<endl<<homography_matrix<<endl;
 
     //-- 从本质矩阵中恢复旋转和平移信息.
     recoverPose ( essential_matrix, points1, points2, R, t, focal_length, principal_point );

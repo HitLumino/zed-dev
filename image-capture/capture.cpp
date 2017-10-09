@@ -25,7 +25,7 @@
 #include <string.h>
 #include <thread>         // std::thread
 #include <mutex>
-#include <feature_extraction.h>
+
 
 #include <sl/Camera.hpp>
 #include <opencv2/opencv.hpp>//for display
@@ -46,7 +46,7 @@ cv::Mat slMat2cvMat(sl::Mat& input);
 int main(int argc, char **argv) {
     // Set configuration parameters
     InitParameters init_params;
-    init_params.camera_resolution = RESOLUTION_HD720; // Use HD720 video mode
+    init_params.camera_resolution = RESOLUTION_VGA; // Use HD720 video mode
     init_params.camera_fps = 30; // Set fps at 60
 
     // Open the camera
@@ -76,27 +76,31 @@ void run()
     int i = 0;
     sl::Mat sl_l_image,sl_r_image;//zed格式图像
     cv::Mat cv_l_image,cv_r_image;//opencv格式图像
+    vector<string> image_files;
 
     while (!quit) {
         // Grab an image
-        if (zed.grab() == SUCCESS) {
+        RuntimeParameters init_grab;
+        init_grab.enable_depth=false;
+        init_grab.enable_point_cloud=false;
+        if (zed.grab(init_grab) == SUCCESS) {
             // A new image is available if grab() returns SUCCESS
             zed.retrieveImage(sl_l_image, VIEW_LEFT); // Get the left image
             zed.retrieveImage(sl_r_image, VIEW_RIGHT); //Get the right image
             unsigned long long timestamp = zed.getCameraTimestamp(); // Get the timestamp at the time the image was captured
             cv_l_image=slMat2cvMat(sl_l_image);
             cv_r_image=slMat2cvMat(sl_r_image);
-            feature_extraction(cv_l_image,cv_r_image);
-           // ostringstream filename1,filename2;
+            //feature_extraction(cv_l_image,cv_r_image);
+            ostringstream filename1,filename2;
             //cv::imshow("VIEW", cv::Mat((int) zed_image.getHeight(), (int) zed_image.getWidth(), CV_8UC4, zed_image.getPtr<sl::uchar1>(sl::MEM_CPU)));
-            //cv::imshow("VIEW_LEFT",cv_l_image);
-           // cv::imshow("VIEW_RIGHT",cv_r_image);
-            //filename1 << "/home/lumino/Workspace/zed-dev/data/" << "left" << setfill('0') << setw(6) << i << ".png";
-            //filename2 << "/home/lumino/Workspace/zed-dev/data/" << "right" << setfill('0') << setw(6) << i << ".png";
-          //  cv::imwrite(filename1.str(), cv_l_image);//imwrite()特别慢,程序运行的时候一般不要用
-          //  cv::imwrite(filename2.str(), cv_r_image);//imwrite()特别慢,程序运行的时候一般不要用
-            //cv::imwrite("Left_image.png",cv_l_image);
-            //cv::imwrite("Right_image.png",cv_r_image);
+            cv::imshow("VIEW_LEFT",cv_l_image);
+           cv::imshow("VIEW_RIGHT",cv_r_image);
+            filename1 << "/home/lumino/Workspace/zed-dev/data/" << "left" << setfill('0') << setw(6) << i << ".png";
+            
+            filename2 << "/home/lumino/Workspace/zed-dev/data/" << "right" << setfill('0') << setw(6) << i << ".png";
+            //cv::imwrite(filename1.str(), cv_l_image);//imwrite()特别慢,程序运行的时候一般不要用
+            //cv::imwrite(filename2.str(), cv_r_image);//imwrite()特别慢,程序运行的时候一般不要用
+     
             cv::waitKey(5);
             //printf("Image resolution: %d x %d  || Image timestamp: %llu\n", zed_image.getWidth(), zed_image.getHeight(), timestamp);
             std::cout<<i<<endl;

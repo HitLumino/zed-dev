@@ -143,4 +143,13 @@ lumino@lumino:~/hitlumino/zed-dev/feature_extractoin/build$ make
 [ 75%] Linking CXX executable ../../bin/test
 [100%] Built target test
 ```
+## 3. 找不到ZED相关函数
+![](Question_images/sl.png)
+### 解决方案
+一定要加namespace sl;
+## 4.camke 找不到cvtColor
+/home/lumino/hitlumino/zed-dev/PNP/test/test_pnp.cpp:102:17: error: ‘cvtColor’ is not a member of ‘cv’
+                 cv::cvtColor(slMat2cvMat(image_depth),frame_depth,CV_BGRA2BGR);
+### 解决方案
+补上`#include <opencv2/opencv.hpp>//for display`
 

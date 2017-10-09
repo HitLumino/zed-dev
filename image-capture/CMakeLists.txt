@@ -36,7 +36,7 @@ link_directories(${OpenCV_LIBRARY_DIRS})
 link_directories(${ZED_LIBRARY_DIR})
 link_directories(${CUDA_LIBRARY_DIRS})
 
-ADD_EXECUTABLE(${execName} "main.cpp")
+ADD_EXECUTABLE(${execName} "capture.cpp")
 #add_definitions(-std=c++0x -g -O3)
 #SET(SPECIAL_OS_LIBS "pthread" "X11")
 #add_definitions(-std=c++0x -O3 -pthread)

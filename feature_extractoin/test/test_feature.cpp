@@ -94,18 +94,7 @@ void run()
             cvtColor(cv_r_image,cv_r_image,CV_BGRA2BGR);
 
             feature_extraction(cv_l_image,cv_r_image);
-
-
-           // cv::imshow("VIEW_LEFT",cv_l_image);
-           // cv::imshow("VIEW_RIGHT",cv_r_image);
-            //filename1 << "/home/lumino/Workspace/zed-dev/data/" << "left" << setfill('0') << setw(6) << i << ".png";
-            //filename2 << "/home/lumino/Workspace/zed-dev/data/" << "right" << setfill('0') << setw(6) << i << ".png";
-            //cv::imwrite(filename1.str(), cv_l_image);//imwrite()特别慢,程序运行的时候一般不要用
-            //cv::imwrite(filename2.str(), cv_r_image);//imwrite()特别慢,程序运行的时候一般不要用
-            //cv::imwrite("Left_image.png",cv_l_image);
-            //cv::imwrite("Right_image.png",cv_r_image);
             cv::waitKey(5);
-            //printf("Image resolution: %d x %d  || Image timestamp: %llu\n", zed_image.getWidth(), zed_image.getHeight(), timestamp);
             std::cout<<i<<endl;
             i++;
         }
