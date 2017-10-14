@@ -13,6 +13,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/viz.hpp> 
 #include "pose_estimation_3d2d.h"
+#include <opencv2/core/eigen.hpp>//eigen opencv
 
 using namespace std;
 using namespace cv;
@@ -129,8 +130,22 @@ void run()
                 pnp(frame_last_rbg,frame_cur_rbg,frame_cur_depth,result);
                 cout<<result.R<<endl;
                 cout<<result.tvec<<endl;
-                cv::Affine3d M(result.R,result.tvec);
-                vis.setWidgetPose( "Camera", M);
+         ////////////////////////////////////////如何从cv::转化成eigen
+                Eigen::Matrix3d r;
+                cv::cv2eigen(result.R, r);//转换成eigen 矩阵r
+                Eigen::AngleAxisd angle(r);
+                Eigen::Isometry3d T = Eigen::Isometry3d::Identity();
+                Eigen::Translation<double,3> trans(result.tvec(0),
+                                                   result.tvec(1),
+                                                   result.tvec(2));
+               T=angle;
+               T(0,3) = result.tvec(0);
+               T(1,3) = result.tvec(1);
+               T(2,3) = result.tvec(2);
+          ////////////////////////////////////////////////
+
+               // cv::Affine3d M(result.R,result.tvec);
+                //vis.setWidgetPose( "Camera", T);
                 vis.spinOnce(1, false);
                 mutex_input.unlock();
 

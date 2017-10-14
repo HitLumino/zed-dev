@@ -19,6 +19,7 @@ test/CMakeFiles/test.dir/test_pnp.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-d
 test/CMakeFiles/test.dir/test_pnp.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/core/cvdef.h
 test/CMakeFiles/test.dir/test_pnp.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/core/cvstd.hpp
 test/CMakeFiles/test.dir/test_pnp.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/core/cvstd.inl.hpp
+test/CMakeFiles/test.dir/test_pnp.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/core/eigen.hpp
 test/CMakeFiles/test.dir/test_pnp.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/core/fast_math.hpp
 test/CMakeFiles/test.dir/test_pnp.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/core/hal/interface.h
 test/CMakeFiles/test.dir/test_pnp.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/core/mat.hpp
