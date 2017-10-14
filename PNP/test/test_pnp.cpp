@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
     InitParameters init_params;
     init_params.camera_resolution = RESOLUTION_VGA; // cost time: 0.04647
     //init_params.camera_resolution = RESOLUTION_HD720;//cost time: 0.086479
-    init_params.camera_fps = 60; // Set fps at 60
+    init_params.camera_fps = 100; // Set fps at 60
     init_params.depth_mode=DEPTH_MODE_MEDIUM;
 
     // Open the camera
@@ -45,10 +45,18 @@ int main(int argc, char **argv) {
         zed.close();
         return 1; // Quit if an error occurred
     }
-
-
-
     startZED();
+
+//    cv::viz::Viz3d vis("Visual Odometry");
+//    cv::viz::WCoordinateSystem world_coor(1.0), camera_coor(0.5);
+//    cv::Point3d cam_pos( 0, -1.0, -1.0 ), cam_focal_point(0,0,0), cam_y_dir(0,1,0);
+//    cv::Affine3d cam_pose = cv::viz::makeCameraPose( cam_pos, cam_focal_point, cam_y_dir );
+//    vis.setViewerPose( cam_pose );
+
+//    world_coor.setRenderingProperty(cv::viz::LINE_WIDTH, 2.0);
+//    camera_coor.setRenderingProperty(cv::viz::LINE_WIDTH, 1.0);
+//    vis.showWidget( "World", world_coor );
+//    vis.showWidget( "Camera", camera_coor );
 
     return 0;
 }
@@ -69,8 +77,6 @@ void run()
     init_grab.enable_depth=true;
     init_grab.enable_point_cloud=false;
 
-    //sl::Mat sl_l_image;
-    //cv::Mat cv_l_image;
     cv::Mat frame_cur_rbg;
     cv::Mat frame_last_rbg;
     cv::Mat frame_cur_depth;
@@ -100,17 +106,19 @@ void run()
                 cv::cvtColor(slMat2cvMat(image_rgb),frame_rbg,CV_BGRA2BGR);//转换成３通道图
                 cv::cvtColor(slMat2cvMat(image_depth),frame_depth,CV_BGRA2BGR);
                 frame_cur_rbg=frame_rbg;
-		frame_cur_depth=frame_depth;
+                frame_cur_depth=frame_depth;
             }
         }
 
         else
         {
             frame_last_rbg=frame_cur_rbg;
-	    frame_last_depth=frame_cur_depth;
+            frame_last_depth=frame_cur_depth;
+            boost::timer time1;
             if(zed.grab(init_grab)==SUCCESS);
             {
-                
+                std::mutex mutex_input;
+                mutex_input.lock();//加锁
                 zed.retrieveImage(image_rgb, VIEW_LEFT);
                 zed.retrieveImage(image_depth, VIEW_DEPTH);
                 cv::cvtColor(slMat2cvMat(image_rgb),frame_rbg,CV_BGRA2BGR);//转换成３通道图
@@ -124,13 +132,17 @@ void run()
                 cv::Affine3d M(result.R,result.tvec);
                 vis.setWidgetPose( "Camera", M);
                 vis.spinOnce(1, false);
+                mutex_input.unlock();
+
             }
 
-            sl::sleep_ms(30);
+           // sl::sleep_ms(30);
              i++;
+             cout<<time1.elapsed()<<endl;
         }
 
         cout<<i++<<endl;
+        cout<<zed.getCurrentFPS()<<endl;
 
     }
 }

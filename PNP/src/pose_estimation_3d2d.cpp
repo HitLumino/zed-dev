@@ -13,7 +13,8 @@ void bundleAdjustment (
     const vector<Point3f> points_3d,
     const vector<Point2f> points_2d,
     const Mat& K,
-    Mat& R, Mat& t
+    cv::Affine3d::Mat3& R,
+    cv::Affine3d::Vec3& t
 );
 
  void pnp(Mat &rgb_image1,Mat &rgb_image2,Mat &depth_image,RESULT_OF_PNP &result)
@@ -62,7 +63,7 @@ void bundleAdjustment (
 //    cout<<"t="<<endl<<result.tvec<<endl;
 
 
-   // bundleAdjustment ( pts_3d, pts_2d, K, R, t );
+    bundleAdjustment ( pts_3d, pts_2d, K, R, tvec );
 }
 
 void find_feature_matches ( const Mat& img_1, const Mat& img_2,
@@ -124,12 +125,12 @@ Point2d pixel2cam ( const Point2d& p, const Mat& K )
                ( p.y - K.at<double> ( 1,2 ) ) / K.at<double> ( 1,1 )
            );
 }
-/*
-void bundleAdjustment (
-    const vector< Point3f > points_3d,
+
+void bundleAdjustment (const vector< Point3f > points_3d,
     const vector< Point2f > points_2d,
     const Mat& K,
-    Mat& R, Mat& t )
+    cv::Affine3d::Mat3& R,
+    cv::Affine3d::Vec3& t )
 {
     // 初始化g2o
     typedef g2o::BlockSolver< g2o::BlockSolverTraits<6,3> > Block;  // pose 维度为 6, landmark 维度为 3
@@ -143,13 +144,13 @@ void bundleAdjustment (
     g2o::VertexSE3Expmap* pose = new g2o::VertexSE3Expmap(); // camera pose
     Eigen::Matrix3d R_mat;
     R_mat <<
-          R.at<double> ( 0,0 ), R.at<double> ( 0,1 ), R.at<double> ( 0,2 ),
-               R.at<double> ( 1,0 ), R.at<double> ( 1,1 ), R.at<double> ( 1,2 ),
-               R.at<double> ( 2,0 ), R.at<double> ( 2,1 ), R.at<double> ( 2,2 );
+          R( 0,0 ), R( 0,1 ), R( 0,2 ),
+          R( 1,0 ), R( 1,1 ), R( 1,2 ),
+          R( 2,0 ), R( 2,1 ), R( 2,2 );
     pose->setId ( 0 );
     pose->setEstimate ( g2o::SE3Quat (
                             R_mat,
-                            Eigen::Vector3d ( t.at<double> ( 0,0 ), t.at<double> ( 1,0 ), t.at<double> ( 2,0 ) )
+                            Eigen::Vector3d ( t( 0 ), t ( 1 ), t ( 2 ) )
                         ) );
     optimizer.addVertex ( pose );
 
@@ -196,4 +197,4 @@ void bundleAdjustment (
     cout<<endl<<"after optimization:"<<endl;
     cout<<"T="<<endl<<Eigen::Isometry3d ( pose->estimate() ).matrix() <<endl;
 }
-*/
+

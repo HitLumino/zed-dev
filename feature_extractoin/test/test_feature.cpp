@@ -36,6 +36,7 @@ using namespace std;
 
 sl::Camera zed;// Create a ZED camera object
 std::thread zed_callback;
+std::mutex mutex_input;
 using namespace cv;
 
 bool quit = false;
@@ -50,7 +51,7 @@ int main(int argc, char **argv) {
     InitParameters init_params;
     init_params.camera_resolution = RESOLUTION_VGA; // cost time: 0.04647
     //init_params.camera_resolution = RESOLUTION_HD720;//cost time: 0.086479
-    init_params.camera_fps = 30; // Set fps at 60
+    init_params.camera_fps = 60; // Set fps at 60
 
     // Open the camera
     ERROR_CODE err = zed.open(init_params);
@@ -77,24 +78,27 @@ void startZED() {
 void run()
 {
     int i = 0;
-    sl::Mat sl_l_image,sl_r_image;//zed格式图像
+    sl::Mat sl_l_image,sl_r_image,sl_ll_image;//zed格式图像
     cv::Mat cv_l_image,cv_r_image;//opencv格式图像
 
     while (!quit) {
         // Grab an image
+       // boost::timer t;
         if (zed.grab() == SUCCESS) {
-            // A new image is available if grab() returns SUCCESS
+            mutex_input.lock();
+            // A new image is available if grab() returns SUCCESS           
             zed.retrieveImage(sl_l_image, VIEW_LEFT); // Get the left image
-            zed.retrieveImage(sl_r_image, VIEW_RIGHT); //Get the right image
+            zed.retrieveImage(sl_r_image, VIEW_RIGHT);//Get the right image
+          //  cout<<"daoding 多长时间"<<t.elapsed()<<endl;
             unsigned long long timestamp = zed.getCameraTimestamp(); // Get the timestamp at the time the image was captured
             cv_l_image=slMat2cvMat(sl_l_image);
             cv_r_image=slMat2cvMat(sl_r_image);
-
+            mutex_input.unlock();
             cvtColor(cv_l_image,cv_l_image,CV_BGRA2BGR);
             cvtColor(cv_r_image,cv_r_image,CV_BGRA2BGR);
-
+            cout<<zed.getCurrentFPS()<<endl;//帧率
             feature_extraction(cv_l_image,cv_r_image);
-            cv::waitKey(5);
+            cv::waitKey(1);
             std::cout<<i<<endl;
             i++;
         }

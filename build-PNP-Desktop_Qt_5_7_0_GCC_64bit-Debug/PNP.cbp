@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="PNP" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\zed\;CMake Files\..\..\..\..\..\opt\;CMake Files\..\..\..\..\..\opt\ros\;CMake Files\..\..\..\..\..\opt\ros\kinetic\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\OpenCV-3.2.0-dev\;CMake Files\cmake_modules\;CMake Files\src\;CMake Files\test\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="edit_cache">
+         <Option working_dir="/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="pose_estimation_3d2d">
+         <Option output="/home/lumino/hitlumino/zed-dev/PNP/lib/libpose_estimation_3d2d.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/src" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/lumino/hitlumino/zed-dev/PNP/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.2.0-dev" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.2.0-dev/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/suitesparse" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/cuda-8.0/include" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/zed/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/src/Makefile&quot;  VERBOSE=1 pose_estimation_3d2d" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/src/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="pose_estimation_3d2d/fast">
+         <Option output="/home/lumino/hitlumino/zed-dev/PNP/lib/libpose_estimation_3d2d.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/src" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/lumino/hitlumino/zed-dev/PNP/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.2.0-dev" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.2.0-dev/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/suitesparse" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/cuda-8.0/include" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/zed/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/src/Makefile&quot;  VERBOSE=1 pose_estimation_3d2d/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/src/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test">
+         <Option output="/home/lumino/hitlumino/zed-dev/PNP/bin/test" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/lumino/hitlumino/zed-dev/PNP/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/lumino/hitlumino/zed-dev/PNP/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.2.0-dev" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.2.0-dev/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/suitesparse" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/cuda-8.0/include" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/zed/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/test/Makefile&quot;  VERBOSE=1 test" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/test/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/test/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test/fast">
+         <Option output="/home/lumino/hitlumino/zed-dev/PNP/bin/test" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/lumino/hitlumino/zed-dev/PNP/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/lumino/hitlumino/zed-dev/PNP/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.2.0-dev" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.2.0-dev/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/suitesparse" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/cuda-8.0/include" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/zed/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/test/Makefile&quot;  VERBOSE=1 test/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/test/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/lumino/hitlumino/zed-dev/build-PNP-Desktop_Qt_5_7_0_GCC_64bit-Debug/test/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/lumino/hitlumino/zed-dev/PNP/src/pose_estimation_3d2d.cpp">
+         <Option target="pose_estimation_3d2d"/>
+      </Unit>
+      <Unit filename="/home/lumino/hitlumino/zed-dev/PNP/test/test_pnp.cpp">
+         <Option target="test"/>
+      </Unit>
+      <Unit filename="/home/lumino/hitlumino/zed-dev/PNP/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/lumino/hitlumino/zed-dev/PNP/../../../../../usr/local/zed/zed-config-version.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\zed\" />
+      </Unit>
+      <Unit filename="/home/lumino/hitlumino/zed-dev/PNP/../../../../../usr/local/zed/zed-config.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\zed\" />
+      </Unit>
+      <Unit filename="/home/lumino/hitlumino/zed-dev/PNP/../../../../../opt/ros/kinetic/share/OpenCV-3.2.0-dev/OpenCVConfig-version.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\OpenCV-3.2.0-dev\" />
+      </Unit>
+      <Unit filename="/home/lumino/hitlumino/zed-dev/PNP/../../../../../opt/ros/kinetic/share/OpenCV-3.2.0-dev/OpenCVConfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\OpenCV-3.2.0-dev\" />
+      </Unit>
+      <Unit filename="/home/lumino/hitlumino/zed-dev/PNP/../../../../../opt/ros/kinetic/share/OpenCV-3.2.0-dev/OpenCVModules.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\OpenCV-3.2.0-dev\" />
+      </Unit>
+      <Unit filename="/home/lumino/hitlumino/zed-dev/PNP/../../../../../opt/ros/kinetic/share/OpenCV-3.2.0-dev/OpenCVModules-none.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\OpenCV-3.2.0-dev\" />
+      </Unit>
+      <Unit filename="/home/lumino/hitlumino/zed-dev/PNP/cmake_modules/FindG2O.cmake">
+          <Option virtualFolder="CMake Files\cmake_modules\" />
+      </Unit>
+      <Unit filename="/home/lumino/hitlumino/zed-dev/PNP/cmake_modules/FindCSparse.cmake">
+          <Option virtualFolder="CMake Files\cmake_modules\" />
+      </Unit>
+      <Unit filename="/home/lumino/hitlumino/zed-dev/PNP/src/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\src\" />
+      </Unit>
+      <Unit filename="/home/lumino/hitlumino/zed-dev/PNP/test/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\test\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

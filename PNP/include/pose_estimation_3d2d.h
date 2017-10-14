@@ -9,14 +9,14 @@
 #include <Eigen/Core>
 #include <Eigen/Geometry>
 #include <chrono>
-/*
+
 #include <g2o/core/base_vertex.h>
 #include <g2o/core/base_unary_edge.h>
 #include <g2o/core/block_solver.h>
 #include <g2o/core/optimization_algorithm_levenberg.h>
 #include <g2o/solvers/csparse/linear_solver_csparse.h>
 #include <g2o/types/sba/types_six_dof_expmap.h>
-*/
+
 
 
 using namespace std;
@@ -38,12 +38,12 @@ void find_feature_matches (
 // 像素坐标转相机归一化坐标
 Point2d pixel2cam ( const Point2d& p, const Mat& K );
 void pnp(Mat &rgb_image1, Mat &rgb_image2, Mat &depth_image, RESULT_OF_PNP &result);
-//void bundleAdjustment (
-   // const vector<Point3f> points_3d,
-    //const vector<Point2f> points_2d,
-   // const Mat& K,
-   // Mat& R, Mat& t
-//);
+void bundleAdjustment (const vector<Point3f> points_3d,
+    const vector<Point2f> points_2d,
+    const Mat& K,
+    cv::Affine3d::Mat3& R,
+    cv::Affine3d::Vec3& t
+);
 
 #endif
 
