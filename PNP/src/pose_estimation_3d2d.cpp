@@ -9,7 +9,7 @@ void find_feature_matches (
 // 像素坐标转相机归一化坐标
 Point2d pixel2cam ( const Point2d& p, const Mat& K );
 
-void bundleAdjustment (
+void bundleAdjustment(
     const vector<Point3f> points_3d,
     const vector<Point2f> points_2d,
     const Mat& K,
@@ -43,7 +43,7 @@ void bundleAdjustment (
     cout<<"3d-2d pairs: "<<pts_3d.size() <<endl;
 
     cv::Affine3d::Vec3 rvec, tvec;
-   cv::Mat inliers;
+    cv::Mat inliers;
    // solvePnP ( pts_3d, pts_2d, K, Mat(), r, t, false ); // 调用OpenCV 的 PnP 求解，可选择EPNP，DLS等方法
     cv::solvePnPRansac( pts_3d, pts_2d, K, Mat(), rvec, tvec, false, 100, 4.0, 0.99, inliers );
 
@@ -54,16 +54,14 @@ void bundleAdjustment (
 //    cout<<"R="<<endl<<R<<endl;
 //    cout<<"t="<<endl<<tvec<<endl;
 
-//    cout<<"calling bundle adjustment"<<endl;
+    cout<<"calling bundle adjustment"<<endl;
 
-    result.R=R;
-    result.tvec=tvec;
-    result.inliers=inliers;
 //    cout<<"R="<<endl<<result.R<<endl;
 //    cout<<"t="<<endl<<result.tvec<<endl;
-
-
-    bundleAdjustment ( pts_3d, pts_2d, K, R, tvec );
+   bundleAdjustment ( pts_3d, pts_2d, K, R, tvec );
+   result.R=R;
+   result.tvec=tvec;
+   result.inliers=inliers;
 }
 
 void find_feature_matches ( const Mat& img_1, const Mat& img_2,
@@ -126,7 +124,7 @@ Point2d pixel2cam ( const Point2d& p, const Mat& K )
            );
 }
 
-void bundleAdjustment (const vector< Point3f > points_3d,
+ void bundleAdjustment (const vector< Point3f > points_3d,
     const vector< Point2f > points_2d,
     const Mat& K,
     cv::Affine3d::Mat3& R,
@@ -196,5 +194,6 @@ void bundleAdjustment (const vector< Point3f > points_3d,
 
     cout<<endl<<"after optimization:"<<endl;
     cout<<"T="<<endl<<Eigen::Isometry3d ( pose->estimate() ).matrix() <<endl;
+
 }
 
