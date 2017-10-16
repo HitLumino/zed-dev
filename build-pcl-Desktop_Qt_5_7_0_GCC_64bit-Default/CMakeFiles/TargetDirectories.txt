@@ -1,8 +1,0 @@
-/home/lumino/hitlumino/zed-dev/build-pcl-Desktop_Qt_5_7_0_GCC_64bit-Default/CMakeFiles/edit_cache.dir
-/home/lumino/hitlumino/zed-dev/build-pcl-Desktop_Qt_5_7_0_GCC_64bit-Default/CMakeFiles/rebuild_cache.dir
-/home/lumino/hitlumino/zed-dev/build-pcl-Desktop_Qt_5_7_0_GCC_64bit-Default/src/CMakeFiles/edit_cache.dir
-/home/lumino/hitlumino/zed-dev/build-pcl-Desktop_Qt_5_7_0_GCC_64bit-Default/src/CMakeFiles/rebuild_cache.dir
-/home/lumino/hitlumino/zed-dev/build-pcl-Desktop_Qt_5_7_0_GCC_64bit-Default/src/CMakeFiles/slam_base.dir
-/home/lumino/hitlumino/zed-dev/build-pcl-Desktop_Qt_5_7_0_GCC_64bit-Default/test/CMakeFiles/edit_cache.dir
-/home/lumino/hitlumino/zed-dev/build-pcl-Desktop_Qt_5_7_0_GCC_64bit-Default/test/CMakeFiles/rebuild_cache.dir
-/home/lumino/hitlumino/zed-dev/build-pcl-Desktop_Qt_5_7_0_GCC_64bit-Default/test/CMakeFiles/test.dir

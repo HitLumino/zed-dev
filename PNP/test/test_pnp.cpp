@@ -145,7 +145,7 @@ void run()
           ////////////////////////////////////////////////
 
                // cv::Affine3d M(result.R,result.tvec);
-                //vis.setWidgetPose( "Camera", T);
+                vis.setWidgetPose( "Camera", T);
                 vis.spinOnce(1, false);
                 mutex_input.unlock();
 
